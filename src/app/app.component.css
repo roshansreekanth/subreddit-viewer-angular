@@ -1,0 +1,36 @@
+.container
+{
+    width: 80%;
+    height: 80%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.multi-container
+{
+    width: 33%;
+    height: 80%;
+    overflow: scroll;
+    display: inline-block;
+    margin-bottom: 1%;
+}
+
+.card
+{
+    outline: white 1px black;
+    background-color: rgb(56, 56, 56);
+    color: white;
+    margin-bottom: 1%;
+}
+
+mat-card-subtitle
+{
+    color: white;
+}
+
+.split-button
+{
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<app-top-bar (refresh) = "onNotify()"></app-top-bar>
+
+<ng-container *ngIf="split == false;">
+  <div class="container">
+    <mat-card class="card" *ngFor="let post of posts">
+      <mat-card-header>
+        <mat-card-subtitle><strong>{{post.subreddit}}</strong> Posted by {{post.author}} on {{post.creation}}</mat-card-subtitle>
+        <mat-card-title>{{post.title}}</mat-card-title>
+      </mat-card-header>
+
+      <img class="thumbnail" *ngIf="post.image != 'self'" mat-card-md-image src="{{post.image}}" onerror="this.src='https\://www.redditinc.com/assets/images/site/reddit-logo.png';">
+
+      <mat-card-content>
+        <p>{{post.text}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="split;">
+  <div class="multi-container" *ngFor="let posts of listings">
+    <mat-card class="card" *ngFor="let post of posts">
+      <mat-card-header>
+        <mat-card-subtitle><strong>{{post.subreddit}}</strong> Posted by {{post.author}} on {{post.creation}}</mat-card-subtitle>
+        <mat-card-title>{{post.title}}</mat-card-title>
+      </mat-card-header>
+
+      <img class="thumbnail" *ngIf="post.image != 'self'" mat-card-md-image src="{{post.image}}" onerror="this.src='https\://www.redditinc.com/assets/images/site/reddit-logo.png';">
+
+      <mat-card-content>
+        <p>{{post.text}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="split == false;">
+<div class="split-button">
+  <button mat-raised-button color="accent" (click) = "changeSplit(); ngOnInit()"> Split Subreddits </button>
+</div>
+</ng-container>
+
+<ng-container *ngIf="split;">
+  <div class="split-button">
+    <button mat-raised-button color="accent" (click) = "changeSplit(); ngOnInit()"> Merge Subreddits </button>
+  </div>
+</ng-container>
